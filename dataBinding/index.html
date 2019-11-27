@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <title>Data Binding Vuejs</title>
+    </head>
+    <body>
+        <h1>Xin chào Phan Trung Phú</h1>
+        <header>
+            <h2>Header</h2>
+        </header>
+    
+        <div id="app">
+            <ul>
+                <li>
+                    <a v-bind:href="face" v-bind:target="target">
+                            Xin Chào <b>{{ name }}</b>
+                    </a>
+
+                </li>
+                <li>Năm nay tôi <b>{{ age }}</b> tuổi</li>
+                <li>{{ formatPrice() }}</li>
+            </ul>
+        </div> 
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </body>
+    <script src="main.js"></script>
+</html>
