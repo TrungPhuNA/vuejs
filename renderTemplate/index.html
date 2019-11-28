@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <title>Render Template Vuejs</title>
+        <style>
+            .tab {
+                margin: 0;
+                padding: 0;
+            }
+
+            .tab  li {
+                padding: 5px 10px;
+                border: 1px solid #f2f2f2;
+                display: inline-block;
+                margin: 5px;
+                cursor: pointer;
+            }
+            .form-tab {
+                padding: 15px;
+                border: 2px solid royalblue;
+                margin-top: 10px;
+            }
+            input {
+                padding:10px;
+                display: block;
+                border: 1px solid #f2f2f2;
+                outline: none;
+                margin-bottom: 10px;
+            }
+            .list-articles {
+                margin-top: 15px;
+                padding: 10px;
+                border: 2px solid seagreen;
+            }
+            .list-articles ul  {
+                list-style: none;
+            }
+            .list-articles ul li a {
+                display: block;
+                text-decoration: none;
+                border-bottom: 1px solid #f2f2f2;
+                padding: 5px 10px;;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Xin chào Phan Trung Phú</h1>
+        <header>
+            <h2>Header</h2>
+        </header>
+        <div id="app">
+            <ul class="tab">
+                <li v-on:click="changeTabs('login')">Đăng ký</li>
+                <li v-on:click="changeTabs('register')">Đăng nhập</li>
+            </ul>
+            <div class="login form-tab" v-if="tabSelected === 'login' ">
+                <h2>Form Đăng nhập</h2>
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="password" placeholder="******">
+                </form>
+            </div>
+            <div class="register form-tab" v-else="tabSelected === 'register' ">
+                <h2>Form Đăng ký</h2>
+                <form action="">
+                    <input type="text" placeholder="Name">
+                    <input type="password" placeholder="******">
+                </form>
+            </div>
+            <div class="list-articles">
+                <h2>Danh sách kỹ năng cá nhân</h2>
+                <ul>
+                    <li v-for="article in articles" v-bind:key="article.id">
+                        <a href="">{{ article.title }}</a>
+                    </li>
+                
+                </ul>
+            </div>
+        </div> 
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </body>
+    <script>
+        var vueInstance = new Vue({
+            el : "#app",
+            data : {
+                tabSelected : 'login',
+                articles : [
+                    {
+                        title: "Java",
+                        id : 1
+                    },
+                    {
+                        id : 2,
+                        title: "PHP"
+                    },
+                    {
+                        id : 3,
+                        title: "JS"
+                    }
+                ]
+            },
+            methods : {
+                changeTabs(tab) {
+                    console.log(tab);
+                    this.tabSelected = tab;
+                }
+            }
+        })
+    </script>
+</html>
