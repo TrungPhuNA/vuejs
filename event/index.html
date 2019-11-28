@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <title>Event Vuejs</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: rosybrown;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Xin chào Phan Trung Phú</h1>
+        <header>
+            <h2>Header</h2>
+        </header>
+        <div id="app">
+            <p>Tôi năm nay <b>{{ age }}</b> tuổi</p>
+            <button v-on:click="countAge(5, $event)">Click My</button>
+            <div class="box" v-on:mousemove="handelMousemove">
+                <p>clientX : {{ clientX }}</p>
+                <p>clientY : {{ clientY }}</p>
+            </div>
+            <form action="" v-on:submit.prevent="handelSubmit">
+                <label for="">Name</label>
+                <input type="text" placeholder="Name ..." name="name">
+                <label for="">Email</label>
+                <input type="email" placeholder="Email ..." name="email">
+                <button type="submit">Xác nhận</button>
+            </form>
+        </div> 
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </body>
+    <script src="main.js"></script>
+</html>
