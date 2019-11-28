@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+        <title>Two Way Binding Vuejs</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h2>Header</h2>
+        </header>
+        <div id="app">
+            <h5>Name = {{ firstname }}</h5>
+            <input type="text" v-on:keyup="handleKeyup($event)" placeholder="Nhập tên của bạn.">
+            <input type="text" v-model="firstname" name="">
+            <div class="demo" v-bind:class="{ active :  true, error :false }"></div>
+        </div> 
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </body>
+</html>
+<script>
+    var vueInstance = new Vue({
+        el : "#app",
+        data : { 
+            firstname : '',
+            textClass : 'activi',
+            isActivi : true,
+            isError : false
+        },
+        methods : {
+            handleKeyup(e) {
+                this.firstname = e.target.value 
+                console.log(e.target.value);
+            }
+        }
+    })
+</script>
